@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+if hash -r git &> /dev/null; then
+	function gi() { curl -L -s "https://www.gitignore.io/api/$@"; }
+	export -f gi
+
+	git config --global user.name "Thibault Hild"
+	git config --global user.email "gautaz@users.noreply.github.com"
+	git config --global user.username "gautaz"
+	git config --global push.default "simple"
+	git config --global alias.conflicts "diff --name-only --diff-filter=U"
+	git config --global core.excludesFile "${HOME}/.gitignore"
+
+	if [ ! -f "${HOME}/.gitignore" ]; then
+		_temporary_closure() {
+			local giList="vim"
+			if [ "${OSTYPE:0:6}" = "darwin" ]; then
+				giList="${giList},osx"
+			fi
+			gi "${giList}" > "${HOME}/.gitignore"
+		}
+		_temporary_closure
+		unset -f _temporary_closure
+	fi
+
+	if [ "${OSTYPE:0:6}" = "darwin" ] && hash -r git-credential-osxkeychain &> /dev/null; then
+		git config --global credential.helper "osxkeychain"
+	fi
+fi
