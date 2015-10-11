@@ -16,15 +16,6 @@ _dotfilesSourceIfExists() {
 }
 export -f _dotfilesSourceIfExists
 
-_dotfilesSourceDir() {
-	local dir="$1"
-	mapfile -t < <(shopt -s nullglob; for file in "${dir}"/*; do echo "${file}"; done)
-	for file in "${MAPFILE[@]}"; do
-		. "${file}"
-	done
-}
-export -f _dotfilesSourceDir
-
 ssn() {
 	while [ $# -gt 0 ]; do
 		case "$1" in
@@ -49,6 +40,6 @@ _dotfilesPathPush "/usr/local/sbin"
 _dotfilesPathPush "${HOME}/.nodebrew/current/bin"
 _dotfilesPathPush "${HOME}/bin"
 
-_dotfilesSourceDir "${HOME}/.bash_profile.d"
+for script in "${HOME}/.bash_profile.d"/*; do . "${script}"; done
 _dotfilesSourceIfExists "${HOME}/.bash_profile.local"
 _dotfilesSourceIfExists "${HOME}/.bashrc"
