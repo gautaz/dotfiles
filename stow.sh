@@ -5,6 +5,6 @@ if ! hash -r stow &> /dev/null; then
 	exit 1
 fi
 
-pushd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null
+pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
 stow -t "${HOME}" -R --ignore=stow-ignored */
-popd &> /dev/null
+popd > /dev/null
