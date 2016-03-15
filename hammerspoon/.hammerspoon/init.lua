@@ -1,4 +1,5 @@
 hs.window.animationDuration = 0
+local mash   = {"ctrl", "alt"}
 local log = hs.logger.new('local', 'info')
 local ratio = 0.6
 local epsilon = 0.05
@@ -7,21 +8,21 @@ for i,line in ipairs(hs.screen.primaryScreen():availableModes()) do
 	log.d(line)
 end
 
-hs.hotkey.bind({"cmd", "alt"}, "C", function()
+hs.hotkey.bind(mash, "C", function()
 	hs.toggleConsole()
 end)
 
-hs.hotkey.bind({"cmd", "alt"}, "R", function()
+hs.hotkey.bind(mash, "R", function()
 	hs.reload()
 end)
 
 for i=3,7 do
-	hs.hotkey.bind({"cmd", "alt"}, tostring(i), function()
+	hs.hotkey.bind(mash, tostring(i), function()
 		ratio = i/10
 	end)
 end
 
-hs.hotkey.bind({"cmd", "alt"}, "LEFT", function()
+hs.hotkey.bind(mash, "LEFT", function()
 	local win = hs.window.focusedWindow()
 	if win then
 		local frame = win:frame()
@@ -42,7 +43,7 @@ hs.hotkey.bind({"cmd", "alt"}, "LEFT", function()
 	end
 end)
 
-hs.hotkey.bind({"cmd", "alt"}, "UP", function()
+hs.hotkey.bind(mash, "UP", function()
 	local win = hs.window.focusedWindow()
 	if win then
 		local frame = win:frame()
@@ -63,7 +64,7 @@ hs.hotkey.bind({"cmd", "alt"}, "UP", function()
 	end
 end)
 
-hs.hotkey.bind({"cmd", "alt"}, "RIGHT", function()
+hs.hotkey.bind(mash, "RIGHT", function()
 	local win = hs.window.focusedWindow()
 	if win then
 		local frame = win:frame()
@@ -84,7 +85,7 @@ hs.hotkey.bind({"cmd", "alt"}, "RIGHT", function()
 	end
 end)
 
-hs.hotkey.bind({"cmd", "alt"}, "DOWN", function()
+hs.hotkey.bind(mash, "DOWN", function()
 	local win = hs.window.focusedWindow()
 	if win then
 		local frame = win:frame()
