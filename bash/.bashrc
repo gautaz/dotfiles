@@ -1,3 +1,5 @@
+BASH="$(which bash)"
+SHELL="${BASH}"
 GIT_PROMPT_THEME=Default
 
 if BREW_PREFIX="$(brew --prefix 2> /dev/null)"; then
