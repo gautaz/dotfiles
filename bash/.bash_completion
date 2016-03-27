@@ -1,0 +1,7 @@
+if [ -d "${HOME}/.bash_completion.d" ]; then
+	for completion in "${HOME}/.bash_completion.d"/*; do
+		if [ -f "${completion}" ]; then
+			. "${completion}"
+		fi
+	done
+fi
