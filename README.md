@@ -2,13 +2,14 @@
 
 A versioned container for my configuration files.
 
-These include the configuration for:
+These include configuration for:
 
-* bash
-* git
-* readline
-* screen
-* ssh
+- [bash](https://www.gnu.org/software/bash/)
+- [git](https://git-scm.com/)
+- [neovim](https://neovim.io/)
+- [readline](https://www.gnu.org/software/readline/)
+- [screen](https://www.gnu.org/software/screen/)
+- [ssh](http://www.openssh.com/)
 
 ## install
 
