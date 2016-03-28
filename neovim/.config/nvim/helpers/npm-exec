@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -o errexit
+
+if ! hash npm &> /dev/null; then
+	exit 0
+fi
+
+BIN="$(cd "$1" && npm bin)/$2"; shift 2
+
+if [ -e "${BIN}" ]; then "${BIN}" "$@" ; fi
