@@ -11,6 +11,7 @@ endif
 
 call plug#begin(DotFiles('plugged'))
 Plug 'benekastah/neomake'
+Plug 'goatslacker/mango.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
