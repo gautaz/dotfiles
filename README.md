@@ -14,4 +14,4 @@ These include the configuration for:
 
     cd <some-location>
     git clone https://github.com/gautaz/dotfiles.git
-    dotfiles/stow.sh
+    dotfiles/install.sh
