@@ -16,3 +16,8 @@ These include configuration for:
     cd <some-location>
     git clone https://github.com/gautaz/dotfiles.git
     dotfiles/install.sh
+
+## Credits
+
+Many ideas were shamelessly taken from [Oliver Caldwell dotfiles](https://github.com/Olical/dotfiles).
+Notably using [stow](https://www.gnu.org/software/stow/) as a way to organize and install the dot files.
