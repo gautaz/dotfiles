@@ -15,7 +15,9 @@ function! s:npm_bin_path()
 	return ''
 endfunction
 
-autocmd BufEnter * :let g:formatterpath = [ s:npm_bin_path() ]
+augroup my_autocommands
+	autocmd BufEnter * :let g:formatterpath = [ s:npm_bin_path() ]
+augroup END
 
 let g:formatdef_standardformat = '"standard-format"'
 let g:formatters_javascript = ['standardformat', 'jscs']

@@ -1,4 +1,6 @@
-autocmd BufWritePost,BufReadPost * Neomake
+augroup my_autocommands
+	autocmd BufWritePost,BufReadPost * Neomake
+augroup END
 
 let g:neomake_open_list = 2
 

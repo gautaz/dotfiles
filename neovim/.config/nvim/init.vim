@@ -1,4 +1,7 @@
-autocmd!
+augroup my_autocommands
+	autocmd!
+augroup END
+
 let mapleader=" "
 
 function! DotFiles(path)
@@ -7,7 +10,9 @@ endfunction
 
 if empty(glob(DotFiles('autoload/plug.vim')))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall | source $MYVIMRC
+	augroup my_autocommands
+		autocmd VimEnter * PlugInstall | source $MYVIMRC
+	augroup END
 endif
 
 call plug#begin(DotFiles('plugged'))
