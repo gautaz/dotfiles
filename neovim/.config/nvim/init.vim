@@ -14,6 +14,7 @@ call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
+Plug 'embear/vim-localvimrc'
 Plug 'goatslacker/mango.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
