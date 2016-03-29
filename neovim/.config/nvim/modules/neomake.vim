@@ -9,3 +9,10 @@ for jschecker in neomake#makers#ft#javascript#EnabledMakers()
 	let g:neomake_javascript_{jschecker}_maker.exe = expand(DotFiles('helpers/npm-exec'))
 	let g:neomake_javascript_{jschecker}_maker.args = [ '%:p:h', jschecker ] + g:neomake_javascript_{jschecker}_maker.args
 endfor
+
+let g:neomake_javascript_standard_maker = {
+			\ 'exe': expand(DotFiles('helpers/npm-exec')),
+			\ 'args': [ '%:p:h', 'standard', '%:p' ],
+			\ 'errorformat': '%f:%l:%c: %m'
+			\ }
+let g:neomake_javascript_enabled_makers = [ 'standard' ] + neomake#makers#ft#javascript#EnabledMakers()
