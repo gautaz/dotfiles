@@ -1,4 +1,4 @@
-autocmd! BufWritePost,BufReadPost * Neomake
+autocmd BufWritePost,BufReadPost * Neomake
 
 let g:neomake_open_list = 2
 

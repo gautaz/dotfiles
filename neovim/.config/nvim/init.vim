@@ -1,3 +1,4 @@
+autocmd!
 let mapleader=" "
 
 function! DotFiles(path)
