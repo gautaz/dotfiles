@@ -11,9 +11,12 @@ if empty(glob(DotFiles('autoload/plug.vim')))
 endif
 
 call plug#begin(DotFiles('plugged'))
+Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
 Plug 'goatslacker/mango.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
