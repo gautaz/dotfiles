@@ -27,6 +27,7 @@ function! s:set_local_javascript_maker()
   endif
 
   let g:neomake_javascript_enabled_makers = neomake#makers#ft#javascript#EnabledMakers()
+  call filter(g:neomake_javascript_enabled_makers, 'executable(v:val)')
 endfunction
 
 augroup my_autocommands
