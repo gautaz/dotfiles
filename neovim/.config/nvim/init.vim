@@ -2,8 +2,6 @@ augroup my_autocommands
 	autocmd!
 augroup END
 
-let mapleader=" "
-
 function! DotFiles(path)
 	return '~/.config/nvim/' . a:path
 endfunction
@@ -22,6 +20,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'elzr/vim-json'
 Plug 'embear/vim-localvimrc'
 Plug 'goatslacker/mango.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

@@ -4,14 +4,12 @@ let g:formatters_javascript = ['standardformat', 'jscs']
 
 "most formatters get their configuration relatively to the path of the file
 "being formatted
-function! LocalAutoformat()
+function! ContextualAutoformat()
 		let l:oldpwd = getcwd()
     cd %:p:h
     :Autoformat
     execute 'cd' l:oldpwd
 endfunction
-
-noremap <leader>f :call LocalAutoformat()<CR>
 
 "this ensures that node project formatters located in the npm binary path are
 "foudn by autoformat
