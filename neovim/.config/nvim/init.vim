@@ -17,6 +17,7 @@ call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'Chiel92/vim-autoformat'
+Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'embear/vim-localvimrc'
 Plug 'goatslacker/mango.vim'
