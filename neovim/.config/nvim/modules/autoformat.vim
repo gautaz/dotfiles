@@ -1,5 +1,5 @@
 "adds standard-format as a potential formatter
-let g:formatdef_standardformat = '"standard-format"'
+let g:formatdef_standardformat = '"standard-format -"'
 let g:formatters_javascript = ['standardformat', 'jscs']
 
 "most formatters get their configuration relatively to the path of the file
