@@ -1,0 +1,3 @@
+hi link EasyMotionTarget ColorColumn
+hi link EasyMotionTarget2First SpecialChar
+hi link EasyMotionTarget2Second SpecialComment
