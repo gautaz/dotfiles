@@ -8,3 +8,6 @@ set scrolloff=7
 "confirmation
 set hidden
 set confirm
+
+"avoid wildmenu to select first entry automatically
+set wildmode=longest,list
