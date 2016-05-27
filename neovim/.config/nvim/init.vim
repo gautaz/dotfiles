@@ -16,6 +16,7 @@ endif
 call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
+Plug 'bronson/vim-visual-star-search'
 Plug 'Chiel92/vim-autoformat'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
