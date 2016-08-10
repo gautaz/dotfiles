@@ -1,5 +1,9 @@
 let g:neomake_open_list = 2
 
+"let g:neomake_html_tidy_maker = neomake#makers#ft#html#tidy()
+let g:neomake_html_tidy_args = neomake#makers#ft#html#tidy().args + [ '-language', 'us' ]
+let g:neomake_html_tidy_errorformat = '%A%f:%l:%c: %m'
+
 "if an npm binary path is available, this function ensures that the first
 "available maker present in this path will be used to reveal errors
 "if no maker is available in such a path, reset to the default makers list
