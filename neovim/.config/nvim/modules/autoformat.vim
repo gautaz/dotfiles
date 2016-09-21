@@ -12,7 +12,7 @@ function! ContextualAutoformat()
 endfunction
 
 "this ensures that node project formatters located in the npm binary path are
-"foudn by autoformat
+"found by autoformat
 augroup my_autocommands
 	autocmd Filetype javascript let g:formatterpath = NpmBinPath(expand('%'))
 augroup END
