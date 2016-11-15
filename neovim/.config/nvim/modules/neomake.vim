@@ -8,27 +8,25 @@ let g:neomake_html_tidy_errorformat = '%A%f:%l:%c: %m'
 "available maker present in this path will be used to reveal errors
 "if no maker is available in such a path, reset to the default makers list
 function! s:set_local_javascript_maker()
-  let l:npmbin = NpmBinPath(expand('%'))
+  let l:binpaths = FindNpmBin(expand('%'), [ 'standard' ] + neomake#makers#ft#javascript#EnabledMakers())
 
-  if !empty(l:npmbin)
-    if executable(l:npmbin[0] . '/standard')
-      let g:neomake_javascript_npmstandard_maker = {
-            \ 'exe': l:npmbin[0] . '/standard',
-            \ 'errorformat': '%f:%l:%c: %m'
-            \ }
-      let g:neomake_javascript_enabled_makers = [ 'npmstandard' ]
+  if has_key(l:binpaths, 'standard')
+    let g:neomake_javascript_npmstandard_maker = {
+          \ 'exe': l:binpaths['standard'],
+          \ 'errorformat': '%f:%l:%c: %m'
+          \ }
+    let g:neomake_javascript_enabled_makers = [ 'npmstandard' ]
+    return
+  endif
+
+  for l:maker in neomake#makers#ft#javascript#EnabledMakers()
+    if has_key(l:binpaths, l:maker)
+      let g:neomake_javascript_npm{l:maker}_maker = neomake#makers#ft#javascript#{l:maker}()
+      let g:neomake_javascript_npm{l:maker}_maker.exe = l:binpaths[l:maker]
+      let g:neomake_javascript_enabled_makers = [ 'npm' . maker ]
       return
     endif
-
-    for maker in neomake#makers#ft#javascript#EnabledMakers()
-      if executable(l:npmbin[0] . '/' . maker)
-        let g:neomake_javascript_npm{maker}_maker = neomake#makers#ft#javascript#{maker}()
-        let g:neomake_javascript_npm{maker}_maker.exe = l:npmbin[0] . '/' . maker
-        let g:neomake_javascript_enabled_makers = [ 'npm' . maker ]
-        return
-      endif
-    endfor
-  endif
+  endfor
 
   let g:neomake_javascript_enabled_makers = neomake#makers#ft#javascript#EnabledMakers()
   call filter(g:neomake_javascript_enabled_makers, 'executable(v:val)')

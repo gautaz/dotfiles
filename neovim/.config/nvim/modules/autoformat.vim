@@ -15,5 +15,5 @@ endfunction
 "this ensures that node project formatters located in the npm binary path are
 "found by autoformat
 augroup my_autocommands
-	autocmd Filetype javascript let g:formatterpath = NpmBinPath(expand('%'))
+	autocmd Filetype javascript let g:formatterpath = NpmBinPaths(expand('%'))
 augroup END

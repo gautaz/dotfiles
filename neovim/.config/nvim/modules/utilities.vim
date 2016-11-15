@@ -1,5 +1,28 @@
-function! NpmBinPath(path)
-	if !executable('npm')
+let s:scriptpath = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
+function! FindNpmBin(path, binaries)
+  let l:result = {}
+
+	if !executable('node')
+    return l:result
+  endif
+
+  let l:destination = fnamemodify(a:path, ':p')
+
+  if !isdirectory(l:destination)
+    let l:destination = fnamemodify(l:destination, ':h')
+  endif
+
+  for l:entry in split(system('node ' . globpath(s:scriptpath, 'findnpmbin.js') . ' ' . l:destination . ' ' . join(a:binaries)), '\n')
+    let l:sentry = split(l:entry, ':')
+    let l:result[l:sentry[0]] = l:sentry[1]
+  endfor
+
+  return l:result
+endfunction
+
+function! NpmBinPaths(path)
+	if !executable('node')
     return []
   endif
 
@@ -16,13 +39,8 @@ function! NpmBinPath(path)
   let l:oldpwd = getcwd()
   execute 'cd' l:newpwd
 
-  let l:result = split(system('npm bin'), '\n')[0]
+  let l:result = split(system('node -e "module.paths.forEach(function(p) { console.log(require(''path'').join(p, ''.bin'')) })"'), '\n')
   execute 'cd' l:oldpwd
 
-  if !isdirectory(l:result)
-    return []
-  endif
-
-  return [ l:result ]
+  return l:result
 endfunction
-
