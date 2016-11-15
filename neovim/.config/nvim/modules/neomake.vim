@@ -8,7 +8,7 @@ let g:neomake_html_tidy_errorformat = '%A%f:%l:%c: %m'
 "available maker present in this path will be used to reveal errors
 "if no maker is available in such a path, reset to the default makers list
 function! s:set_local_javascript_maker()
-  let l:binpaths = FindNpmBin(expand('%'), [ 'standard' ] + neomake#makers#ft#javascript#EnabledMakers())
+  let l:binpaths = FindNpmBin(expand('%'), [ 'standard', 'xo' ] + neomake#makers#ft#javascript#EnabledMakers())
 
   if has_key(l:binpaths, 'standard')
     let g:neomake_javascript_npmstandard_maker = {
@@ -16,6 +16,16 @@ function! s:set_local_javascript_maker()
           \ 'errorformat': '%f:%l:%c: %m'
           \ }
     let g:neomake_javascript_enabled_makers = [ 'npmstandard' ]
+    return
+  endif
+
+  if has_key(l:binpaths, 'xo')
+    let g:neomake_javascript_npmxo_maker = {
+          \ 'exe': l:binpaths['xo'],
+          \ 'args': ['--reporter=compact'],
+          \ 'errorformat': '%f: line %l\, col %c\, %t%s - %m'
+          \ }
+    let g:neomake_javascript_enabled_makers = [ 'npmxo' ]
     return
   endif
 
