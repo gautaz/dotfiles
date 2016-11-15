@@ -20,6 +20,7 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'Chiel92/vim-autoformat'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim' }
 Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'embear/vim-localvimrc'
 Plug 'goatslacker/mango.vim'
