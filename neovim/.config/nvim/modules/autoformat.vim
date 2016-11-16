@@ -1,4 +1,4 @@
-"adds standard-format and standard as a potential formatters
+"adds alternate formatters
 let g:formatdef_standardformat = '"standard-format -"'
 let g:formatdef_standard = '"standard --fix -"'
 let g:formatdef_xo = '"xo --fix --stdin"'
