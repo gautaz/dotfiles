@@ -1,7 +1,8 @@
 "adds standard-format and standard as a potential formatters
 let g:formatdef_standardformat = '"standard-format -"'
 let g:formatdef_standard = '"standard --fix -"'
-let g:formatters_javascript = ['standardformat', 'standard', 'jscs']
+let g:formatdef_xo = '"xo --fix --stdin"'
+let g:formatters_javascript = ['standardformat', 'standard', 'xo', 'jscs']
 
 "most formatters get their configuration relatively to the path of the file
 "being formatted
