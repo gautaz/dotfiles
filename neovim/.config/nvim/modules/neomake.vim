@@ -22,8 +22,8 @@ function! s:set_local_javascript_maker()
   if has_key(l:binpaths, 'xo')
     let g:neomake_javascript_npmxo_maker = {
           \ 'exe': l:binpaths['xo'],
-          \ 'args': ['--reporter=compact'],
-          \ 'errorformat': '%f: line %l\, col %c\, %t%s - %m'
+          \ 'args': ['--reporter=unix'],
+          \ 'errorformat': '%f:%l:%c: %m'
           \ }
     let g:neomake_javascript_enabled_makers = [ 'npmxo' ]
     return
