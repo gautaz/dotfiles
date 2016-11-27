@@ -36,6 +36,7 @@ export PATH
 export CLICOLOR=yes
 export EDITOR="vi"
 
+_dotfilesPathPush "/usr/local/share/pypy"
 _dotfilesPathPush "/usr/local/sbin"
 _dotfilesPathPush "${HOME}/.nodebrew/current/bin"
 _dotfilesPathPush "${HOME}/bin"
