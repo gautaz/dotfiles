@@ -17,6 +17,7 @@ call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'bronson/vim-visual-star-search'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim' }
 Plug 'easymotion/vim-easymotion'
@@ -29,6 +30,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'k-takata/matchit.vim'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
