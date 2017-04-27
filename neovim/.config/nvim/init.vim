@@ -29,6 +29,7 @@ Plug 'goatslacker/mango.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'k-takata/matchit.vim'
 Plug 'mattn/emmet-vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-abolish'
