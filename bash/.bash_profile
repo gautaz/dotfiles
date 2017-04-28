@@ -16,22 +16,6 @@ _dotfilesSourceIfExists() {
 }
 export -f _dotfilesSourceIfExists
 
-ssn() {
-	while [ $# -gt 0 ]; do
-		case "$1" in
-			-p)
-				local remote_port="$2"; shift
-				;;
-			*)
-				local address="$1"
-				;;
-		esac
-		shift
-	done
-	ssh -t ${remote_port:+-p "${remote_port}"} "${address}" screen -DRR
-}
-export -f ssn
-
 export PATH
 export CLICOLOR=yes
 export EDITOR="vi"
