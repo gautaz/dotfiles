@@ -3,10 +3,10 @@ if hash -r git &> /dev/null; then
 	function gi() { curl -L -s "https://www.gitignore.io/api/$@"; }
 	export -f gi
 
-  git config --global --unset-all user.name
-  git config --global --unset-all user.username
-  git config --global --unset-all user.email
-  git config --global user.useConfigOnly true
+	git config --global --unset-all user.name
+	git config --global --unset-all user.username
+	git config --global --unset-all user.email
+	git config --global user.useConfigOnly true
 	git config --global push.default "simple"
 	git config --global alias.conflicts "diff --name-only --diff-filter=U"
 	git config --global alias.tree "log --all --decorate --oneline --graph"
