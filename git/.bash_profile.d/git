@@ -4,10 +4,12 @@ if hash -r git &> /dev/null; then
 	git config --global alias.tree "log --all --decorate --oneline --graph"
 	git config --global alias.ignore '!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi'
 
+	# See https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-repositories/
 	git config --global --unset-all user.name
 	git config --global --unset-all user.username
 	git config --global --unset-all user.email
 	git config --global user.useConfigOnly true
+
 	git config --global push.default "simple"
 	git config --global core.excludesFile "${HOME}/.gitignore"
 
