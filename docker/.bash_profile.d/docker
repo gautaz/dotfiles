@@ -2,13 +2,12 @@
 if hash -r docker-machine &> /dev/null; then
 	function dmenv() {
 		if [[ $# -eq 0 ]]; then
-			cat <<-EOE |
+			(cat | tr -s '\n') <<-EOE
 			${DOCKER_TLS_VERIFY:+DOCKER_TLS_VERIFY=${DOCKER_TLS_VERIFY}}
 			${DOCKER_CERT_PATH:+DOCKER_CERT_PATH=${DOCKER_CERT_PATH}}
 			${DOCKER_MACHINE_NAME:+DOCKER_MACHINE_NAME=${DOCKER_MACHINE_NAME}}
 			${DOCKER_HOST:+DOCKER_HOST=${DOCKER_HOST}}
 			EOE
-			tr -s '\n'
 		else
 			case "$1" in
 				-c|--clear)
