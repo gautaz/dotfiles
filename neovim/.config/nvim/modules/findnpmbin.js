@@ -12,7 +12,7 @@ if(destination !== __dirname) {
         process.exit(1)
       }
       require(local)
-      fs.unlink(local)
+      fs.unlinkSync(local)
     }
     if(err) {
       // link probably failed because both locations are on different filesystems
