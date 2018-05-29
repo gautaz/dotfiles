@@ -43,6 +43,8 @@ function! s:set_local_javascript_maker()
 endfunction
 
 augroup my_autocommands
-	autocmd BufWritePost,BufWinEnter * Neomake
+  autocmd BufWinEnter * Neomake
   autocmd FileType javascript call s:set_local_javascript_maker()
 augroup END
+
+call neomake#configure#automake('w')
