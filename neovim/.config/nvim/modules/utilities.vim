@@ -13,10 +13,14 @@ function! FindNpmBin(path, binaries)
     let l:destination = fnamemodify(l:destination, ':h')
   endif
 
-  for l:entry in split(system('node ' . globpath(s:scriptpath, 'findnpmbin.js') . ' ' . l:destination . ' ' . join(a:binaries)), '\n')
-    let l:sentry = split(l:entry, ':')
-    let l:result[l:sentry[0]] = l:sentry[1]
-  endfor
+  try
+    for l:entry in split(system('node ' . globpath(s:scriptpath, 'findnpmbin.js') . ' ' . l:destination . ' ' . join(a:binaries)), '\n')
+      let l:sentry = split(l:entry, ':')
+      let l:result[l:sentry[0]] = l:sentry[1]
+    endfor
+  catch /./
+    " This fails sometimes for reasons I have not yet clearly understood
+  endtry
 
   return l:result
 endfunction
