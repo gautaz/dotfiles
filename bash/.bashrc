@@ -7,4 +7,5 @@ if BREW_PREFIX="$(brew --prefix 2> /dev/null)"; then
 	_dotfilesSourceIfExists "${BREW_PREFIX}/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
+for script in "${HOME}/.bashrc.d"/*; do . "${script}"; done
 _dotfilesSourceIfExists "${HOME}/.bashrc.local"
