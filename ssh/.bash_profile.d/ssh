@@ -31,6 +31,5 @@ if hash -r ssh-agent &> /dev/null; then
 		ssh-agent | sed 's/^echo/#echo/' > "${HOME}/.ssh/environment"
 		chmod 600 "${HOME}/.ssh/environment"
 		. "${HOME}/.ssh/environment"
-		ssh-add
 	fi
 fi
