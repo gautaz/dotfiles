@@ -24,6 +24,8 @@ export EDITOR="vi"
 _dotfilesPathPush "/usr/local/share/pypy3"
 _dotfilesPathPush "/usr/local/share/pypy"
 _dotfilesPathPush "/usr/local/sbin"
+_dotfilesPathPush "/usr/local/opt/gettext/bin"
+_dotfilesPathPush "$HOME/Library/Haskell/bin"
 _dotfilesPathPush "${HOME}/bin"
 
 for script in "${HOME}/.bash_profile.d"/*; do . "${script}"; done
