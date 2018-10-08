@@ -16,6 +16,7 @@ _dotfilesSourceIfExists() {
 }
 export -f _dotfilesSourceIfExists
 
+export LANG=en_US.UTF-8
 export PATH
 export CLICOLOR=yes
 export EDITOR="vi"
