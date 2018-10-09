@@ -7,9 +7,11 @@ if ! hash -r stow &> /dev/null; then
 fi
 
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
-find */ -path "*/stow-ignored/install-create" -print0 | while read -r -d $'\0' CREATE; do
-	CREATE=${CREATE#*//}
-	mkdir -p "${HOME}/${CREATE%/stow-ignored/install-create}"
+
+find */ -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTALL; do
+	. "${INSTALL}"
 done
+
 stow -t "${HOME}" -R --ignore=stow-ignored */
+
 popd > /dev/null
