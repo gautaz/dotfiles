@@ -1,6 +1,6 @@
 BASH="$(which bash)"
 SHELL="${BASH}"
-GIT_PROMPT_THEME=Default
+GIT_PROMPT_THEME=Solarized_UserHost
 
 # https://sanctum.geek.nz/arabesque/better-bash-history/
 shopt -s histappend cmdhist
