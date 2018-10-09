@@ -15,7 +15,7 @@ endif
 
 call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 Plug 'bronson/vim-visual-star-search'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'Chiel92/vim-autoformat'
