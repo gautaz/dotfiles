@@ -14,5 +14,7 @@ if BREW_PREFIX="$(brew --prefix 2> /dev/null)"; then
 	_dotfilesSourceIfExists "${BREW_PREFIX}/etc/bash_completion"
 fi
 
+_dotfilesSourceIfExists /etc/bash_completion
+
 for script in "${HOME}/.bashrc.d"/*; do . "${script}"; done
 _dotfilesSourceIfExists "${HOME}/.bashrc.local"
