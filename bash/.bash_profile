@@ -4,7 +4,6 @@ _dotfilesPathPush() {
 		PATH="${dir}${PATH:+:${PATH}}"
 	fi
 }
-export -f _dotfilesPathPush
 
 _dotfilesSourceIfExists() {
 	local script="$1"
@@ -14,7 +13,6 @@ _dotfilesSourceIfExists() {
 	fi
 	return 1
 }
-export -f _dotfilesSourceIfExists
 
 export LANG=en_US.UTF-8
 export PATH

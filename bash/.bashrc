@@ -1,3 +1,12 @@
+_dotfilesSourceIfExists() {
+	local script="$1"
+	if [ -e "${script}" ]; then
+		. "${script}"
+		return 0
+	fi
+	return 1
+}
+
 BASH="$(which bash)"
 SHELL="${BASH}"
 GIT_PROMPT_THEME=Solarized_UserHost
