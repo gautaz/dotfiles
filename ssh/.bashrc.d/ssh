@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-if [ -n "${SSH_AGENT_PID}" ] && ! ssh-add -l >& /dev/null; then
+if [ \( "${-/*i*/YES}" = "YES" \) -a \( -n "${SSH_AGENT_PID}" \) ] && ! ssh-add -l >& /dev/null; then
 	ssh-add
 fi
