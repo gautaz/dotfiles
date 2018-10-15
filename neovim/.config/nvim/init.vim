@@ -21,7 +21,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim' }
 Plug 'easymotion/vim-easymotion'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'embear/vim-localvimrc'
 Plug 'gautaz/vim-nginx'
@@ -36,6 +35,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
