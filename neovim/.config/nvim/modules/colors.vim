@@ -1,2 +1,2 @@
-colorscheme mango
 set background=light
+colorscheme mango
