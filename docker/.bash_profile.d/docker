@@ -27,3 +27,15 @@ if hash -r docker-machine &> /dev/null; then
 	}
 	export -f dmenv
 fi
+
+function docker() {
+	case "$1" in
+		tags)
+			shift
+			docker run --rm gautaz/docker-tags "$@"
+			;;
+		*)
+			command docker "$@"
+			;;
+	esac
+}
