@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 if hash -r git &> /dev/null; then
 	git config --global alias.conflicts "diff --name-only --diff-filter=U"
 	git config --global alias.tree "log --all --decorate --oneline --graph"

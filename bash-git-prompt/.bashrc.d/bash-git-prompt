@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+export GIT_PROMPT_THEME=Solarized_UserHost
 source "${HOME}/.bash-git-prompt/gitprompt.sh"
