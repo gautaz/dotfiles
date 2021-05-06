@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-if hash -r node >& /dev/null && node --help | grep -- --completion-bash >& /dev/null; then
-  source <(node --completion-bash)
-fi
