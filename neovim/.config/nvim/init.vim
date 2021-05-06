@@ -1,3 +1,7 @@
+if executable('volta')
+	let g:node_host_prog = trim(system("volta which neovim-node-host"))
+endif
+
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
