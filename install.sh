@@ -9,6 +9,7 @@ fi
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
 
 find */ -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTALL; do
+	echo "${INSTALL}"
 	. "${INSTALL}"
 done
 

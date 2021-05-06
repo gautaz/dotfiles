@@ -1,0 +1,2 @@
+export DOCKER_COMPOSE_HOME="$HOME/.docker-compose"
+export PATH="$DOCKER_COMPOSE_HOME/bin:$PATH"
