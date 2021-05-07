@@ -12,7 +12,7 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 "autoformat
-noremap <leader>f :call ContextualAutoformat()<CR>
+noremap <leader>f :Autoformat<CR>
 
 "easy align in visual mode (e.g. vipga) and for a motion/text object (e.g. gaip)
 xmap ga <Plug>(EasyAlign)
