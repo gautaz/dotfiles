@@ -13,6 +13,7 @@ find */ -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTA
 	. "${INSTALL}"
 done
 
+stow -t "${HOME}" --ignore=stow-ignored */
 stow -t "${HOME}" -R --ignore=stow-ignored */
 
 popd > /dev/null
