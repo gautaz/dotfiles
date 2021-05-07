@@ -24,6 +24,7 @@ endif
 call plug#begin(DotFiles('plugged'))
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
+Plug 'benjifisher/matchit.vim'
 Plug 'blueyed/vim-diminactive'
 Plug 'bronson/vim-visual-star-search'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -32,7 +33,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'goatslacker/mango.vim'
 Plug 'hashivim/vim-vagrant'
 Plug 'junegunn/vim-easy-align'
-Plug 'k-takata/matchit.vim'
 Plug 'mattn/emmet-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
