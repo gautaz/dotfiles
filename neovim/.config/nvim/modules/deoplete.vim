@@ -6,7 +6,8 @@ call deoplete#custom#option('num_processes', 0)
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#include_keywords = 1
 
 " close the preview window after completion is done
 augroup my_autocommands
