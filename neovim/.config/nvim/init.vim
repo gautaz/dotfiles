@@ -29,7 +29,6 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'easymotion/vim-easymotion'
-Plug 'embear/vim-localvimrc'
 Plug 'goatslacker/mango.vim'
 Plug 'hashivim/vim-vagrant'
 Plug 'junegunn/vim-easy-align'
