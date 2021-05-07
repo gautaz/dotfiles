@@ -14,6 +14,8 @@ _dotfilesSourceIfExists() {
 
 export PATH
 export LANG=en_US.UTF-8
+export LANGUAGE="${LANG}"
+export LC_ALL="${LANG}"
 export EDITOR="vi"
 
 _dotfilesPathPush "/usr/local/sbin"
