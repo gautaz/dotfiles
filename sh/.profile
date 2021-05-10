@@ -7,9 +7,7 @@ _dotfilesPathPush() {
 _dotfilesSourceIfExists() {
 	if [ -e "$1" ]; then
 		. "$1"
-		return 0
 	fi
-	return 1
 }
 
 export PATH
