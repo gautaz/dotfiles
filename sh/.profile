@@ -10,6 +10,8 @@ _dotfilesSourceIfExists() {
 	fi
 }
 
+export UID
+export GID="$(id -g)"
 export PATH
 export LANG=en_US.UTF-8
 export LANGUAGE="${LANG}"
