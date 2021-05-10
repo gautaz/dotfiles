@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 if hash -r tilix 2>/dev/null; then
 	__tilix_new_session() {
+		local mode="$1"
+		shift
 		local pwd='~'
 		[ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
 		pwd="${pwd//[[:cntrl:]]}"
-		tilix -a app-new-session -w "${pwd}" "$@"
+		local title="${pwd}"
+		if [ "${mode}" = "cmd" ]; then title="$*"; fi
+		tilix -a app-new-session -t "${title}" -w "${pwd}" "$@"
 	}
 
 	ns() {
 		local default_exec="$(hash -r screen 2>/dev/null && echo "-e screen")"
-		[ $# -gt 0 ] && __tilix_new_session -t "$*" -e "$@" || __tilix_new_session -t "${pwd}" ${default_exec}
+		[ $# -gt 0 ] && __tilix_new_session cmd -e "$@" || __tilix_new_session sh ${default_exec}
 	}
 fi
