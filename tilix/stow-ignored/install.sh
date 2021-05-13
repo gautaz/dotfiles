@@ -24,6 +24,7 @@ win-switch-to-next-session='<Alt>z'
 win-switch-to-previous-session='<Alt><Shift>z'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-transparency-percent=6
 badge-text=''
 cursor-blink-mode='on'
 custom-command='screen'
