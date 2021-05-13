@@ -6,7 +6,11 @@ if ! hash -r stow &> /dev/null; then
 	exit 1
 fi
 
-__highlight() {
+__info() {
+	echo -e '\e[48;5;76m\e[97m'
+}
+
+__warn() {
 	echo -e '\e[48;5;208m\e[97m'
 }
 

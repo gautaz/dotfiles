@@ -39,7 +39,7 @@ use-system-font=false
 visible-name='Default'
 END_OF_CONFIGURATION
 else
-	__highlight
+	__warn
 	echo "Unable to install Tilix configuration (either tilix or dconf is missing)" >&2
 	__default
 fi
