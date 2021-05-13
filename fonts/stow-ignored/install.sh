@@ -10,4 +10,3 @@ mkdir -p "${FONTS}"
 )
 
 fc-cache -f
-echo "Don't forget to set your terminal font to UbuntuMono Nerd Font Mono"

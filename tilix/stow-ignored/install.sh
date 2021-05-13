@@ -1,4 +1,5 @@
-dconf load /com/gexperts/Tilix/ << END_OF_CONFIGURATION
+if hash -r tilix dconf 2> /dev/null; then
+	dconf load /com/gexperts/Tilix/ <<- END_OF_CONFIGURATION
 [/]
 app-title='\${activeTerminalTitle}'
 close-with-last-session=true
@@ -37,3 +38,8 @@ use-custom-command=true
 use-system-font=false
 visible-name='Default'
 END_OF_CONFIGURATION
+else
+	__highlight
+	echo "Unable to install Tilix configuration (either tilix or dconf is missing)" >&2
+	__default
+fi

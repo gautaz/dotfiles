@@ -6,6 +6,14 @@ if ! hash -r stow &> /dev/null; then
 	exit 1
 fi
 
+__highlight() {
+	echo -e '\e[48;5;208m\e[97m'
+}
+
+__default() {
+	echo -e '\e[49m\e[39m'
+}
+
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
 
 find */ -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTALL; do
