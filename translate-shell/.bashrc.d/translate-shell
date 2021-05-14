@@ -1,0 +1,4 @@
+#!/usr/bin/env/bash
+if hash -r docker 2>/dev/null; then
+	alias trans="docker run -it soimort/translate-shell"
+fi
