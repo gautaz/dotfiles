@@ -1,0 +1,2 @@
+export GIT_PORCELAIN_HOME="$HOME/.git-porcelain"
+export PATH="$GIT_PORCELAIN_HOME:$PATH"
