@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+EXTRA_KUBE_CONFIGS=(${HOME}/.kube/config.d/*)
+export KUBECONFIG="${HOME}/.kube/config$(printf ":%s" "${EXTRA_KUBE_CONFIGS[@]}")"
+
 if hash -r docker 2>/dev/null; then
 	alias kubectl='docker run -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm bitnami/kubectl'
 	source <(kubectl completion bash)
