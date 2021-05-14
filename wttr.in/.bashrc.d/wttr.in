@@ -1,0 +1,4 @@
+#!/user/bin/env bash
+function weather() {
+	curl "https://wttr.in/${*// /%20}"
+}
