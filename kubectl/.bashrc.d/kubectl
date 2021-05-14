@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if hash -r docker 2>/dev/null; then
+	alias kubectl='docker run -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm bitnami/kubectl'
+	source <(kubectl completion bash)
+fi
