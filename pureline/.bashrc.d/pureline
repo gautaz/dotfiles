@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-. ~/.pureline/pureline ~/.pureline.conf
+. ~/.pureline/pureline ~/.pureline-conf
