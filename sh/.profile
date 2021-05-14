@@ -10,8 +10,12 @@ _dotfilesSourceIfExists() {
 	fi
 }
 
+export HOSTNAME
 export UID
 export GID="$(id -g)"
+if getent group docker; then
+	export DOCKER_GID="$(getent group docker | cut -d: -f3)"
+fi
 export PATH
 export LANG=en_US.UTF-8
 export LANGUAGE="${LANG}"
