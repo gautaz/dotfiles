@@ -56,8 +56,7 @@ function gautaz_k8s_segment {
     if [ -n "$context" ]; then
         local bg_color=$1
         local fg_color=$2
-        local kubesymbol=$'\xE2\x8E\x88'
-        local content="${kubesymbol} ${context}"
+        local content="☸ ${context}"
         PS1+=$(segment_end "$fg_color" "$bg_color")
         PS1+=$(segment_content "$fg_color" "$bg_color" " $content ")
         __last_color=$bg_color
@@ -118,8 +117,8 @@ PL_SYMBOLS[read_only]=''
 PL_SYMBOLS[return_code]='陵'
 PL_SYMBOLS[background_jobs]='禎'
 
-PL_SYMBOLS[battery_charging]='⚡'
-PL_SYMBOLS[battery_discharging]='免'
+PL_SYMBOLS[battery_charging]='🔌 '
+PL_SYMBOLS[battery_discharging]='🔋'
 
 PL_SYMBOLS[aws_profile]='摒'
 PL_SYMBOLS[screen]='💻'
