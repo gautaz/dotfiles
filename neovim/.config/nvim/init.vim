@@ -37,6 +37,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sirtaj/vim-openscad',
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
