@@ -117,12 +117,12 @@ PL_SYMBOLS[read_only]=''
 PL_SYMBOLS[return_code]='陵'
 PL_SYMBOLS[background_jobs]='禎'
 
-PL_SYMBOLS[battery_charging]='🔌 '
-PL_SYMBOLS[battery_discharging]='🔋'
+PL_SYMBOLS[battery_charging]='勤'
+PL_SYMBOLS[battery_discharging]='免'
 
 PL_SYMBOLS[aws_profile]='摒'
-PL_SYMBOLS[screen]='💻'
-PL_SYMBOLS[duration]='⏳'
+PL_SYMBOLS[screen]='磊'
+PL_SYMBOLS[duration]='羽'
 
 PL_SYMBOLS[pwd_separator]=''
 PL_SYMBOLS[pwd_trimmed]=''
