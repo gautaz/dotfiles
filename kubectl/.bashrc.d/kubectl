@@ -3,6 +3,28 @@ EXTRA_KUBE_CONFIGS=(${HOME}/.kube/config.d/*)
 export KUBECONFIG="${HOME}/.kube/config$(printf ":%s" "${EXTRA_KUBE_CONFIGS[@]}")"
 
 if hash -r docker 2>/dev/null; then
-	alias kubectl='docker run -v /etc/resolv.conf:/etc/resolv.conf -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm bitnami/kubectl'
+	function __kubectl_interactive_options() {
+		local stdin_option
+		local tty_option
+		case "$1" in
+			attach|debug|exec|run)
+				shift
+				while [[ $# -gt 0 ]]; do
+					if [[ "$1" =~ ^(--tty=true|-[^-]*t.*)$ ]]; then tty_option=t; fi
+					if [[ "$1" =~ ^(--stdin=true|-[^-]*i.*)$ ]]; then stdin_option=i; fi
+					shift
+				done
+				;;
+		esac
+		local options="-${stdin_option}${tty_option}"
+		if [[ ${options} != "-" ]]; then echo "${options}"; fi
+	}
+	export -f __kubectl_interactive_options
+
+	function kubectl() {
+		docker run -v /etc/resolv.conf:/etc/resolv.conf -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
+	}
+	export -f kubectl
+
 	source <(kubectl completion bash)
 fi
