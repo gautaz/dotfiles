@@ -1,0 +1,4 @@
+#!/bin/sh
+if hash -r gpg &> /dev/null; then
+	export GPG_TTY=$(tty)
+fi
