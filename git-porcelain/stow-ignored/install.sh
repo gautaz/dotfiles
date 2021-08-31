@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 GIT_PORCELAIN_HOME="$(dirname "${PWD}")/git-porcelain"
 if [ ! -d "${GIT_PORCELAIN_HOME}" ]; then
-	git clone git@github.com:gautaz/git-porcelain.git "${GIT_PORCELAIN_HOME}"
+	git clone https://github.com/gautaz/git-porcelain.git "${GIT_PORCELAIN_HOME}"
 else
 	(cd "${GIT_PORCELAIN_HOME}" && git fetch -a -p && git pull)
 fi

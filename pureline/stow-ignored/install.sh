@@ -1,2 +1,2 @@
 rm -rf "${HOME}/.pureline"
-git clone --depth=1 git@github.com:chris-marsh/pureline.git "${HOME}/.pureline"
+git clone --depth=1 https://github.com/chris-marsh/pureline.git "${HOME}/.pureline"
