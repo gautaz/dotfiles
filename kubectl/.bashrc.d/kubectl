@@ -21,17 +21,18 @@ if hash -r docker 2>/dev/null; then
 	}
 	export -f __kubectl_interactive_options
 
-	if grep -q '^nameserver 127\.0\.0\.' /etc/resolv.conf; then
-		# systemd-resolved is in charge of DNS resolution
-		# See https://github.com/moby/moby/pull/41022
-		function kubectl() {
-			docker run -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
-		}
-	else
-		function kubectl() {
-			docker run -v /etc/resolv.conf:/etc/resolv.conf -u "${UID}:${GID}" -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
-		}
-	fi
+	function __kubectl_dns_resolution() {
+		if grep -q '^nameserver 127\.0\.0\.' /etc/resolv.conf; then
+			# systemd-resolved is in charge of DNS resolution
+			# See https://github.com/moby/moby/pull/41022
+			echo -v /etc/resolv.conf:/etc/resolv.conf
+		fi
+	}
+	export -f __kubectl_dns_resolution
+
+	function kubectl() {
+		docker run --network=host -u "${UID}:${GID}" $(__kubectl_dns_resolution) -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
+	}
 	export -f kubectl
 
 	source <(kubectl completion bash)
