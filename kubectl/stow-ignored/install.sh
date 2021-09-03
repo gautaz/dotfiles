@@ -10,3 +10,9 @@ if [ ! -e "${HOME}/.kube/config" ]; then
 	users: null
 	EOC
 fi
+. kubectl/.bashrc.d/kubectl
+if hash -r kubectl 2>/dev/null; then
+	KUBECTL_COMPLETION="kubectl/.bash_completion.d"
+	mkdir -p "${KUBECTL_COMPLETION}"
+	kubectl completion bash > "${KUBECTL_COMPLETION}/kubectl"
+fi

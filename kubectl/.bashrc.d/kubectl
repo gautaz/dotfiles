@@ -34,6 +34,4 @@ if hash -r docker 2>/dev/null; then
 		docker run --network=host -u "${UID}:${GID}" $(__kubectl_dns_resolution) -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
 	}
 	export -f kubectl
-
-	source <(kubectl completion bash)
 fi
