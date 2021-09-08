@@ -1,3 +1,15 @@
+declare -A _PROFILING_TICK
+export _PROFILING_TICK
+_shell_profiling_reset() {
+	_PROFILING_TICK[$1]=$(date +"%s%N")
+}
+export -f _shell_profiling_reset
+
+_shell_profiling_lap() {
+	echo "$1: $((($(date +"%s%N") - ${_PROFILING_TICK[$1]}) / 1000000))ms"
+}
+export -f _shell_profiling_lap
+
 _dotfilesSourceIfExists() {
 	local script="$1"
 	if [ -e "${script}" ]; then
