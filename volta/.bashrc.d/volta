@@ -1,4 +1,1 @@
 alias open="open-cli"
-source <(volta completions bash)
-source <(node --completion-bash)
-source <(npm completion)
