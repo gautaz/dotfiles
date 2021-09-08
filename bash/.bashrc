@@ -22,7 +22,7 @@ if ls --version | grep -qF "GNU coreutils"; then
 	alias ls="ls --color=auto"
 fi
 
-if BREW_PREFIX="$(brew --prefix 2> /dev/null)"; then
+if hash -r brew 2> /dev/null && BREW_PREFIX="$(brew --prefix 2> /dev/null)"; then
 	_dotfilesSourceIfExists "${BREW_PREFIX}/etc/bash_completion"
 fi
 
