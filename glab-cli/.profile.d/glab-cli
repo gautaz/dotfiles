@@ -1,0 +1,2 @@
+export GLAB_CLI_HOME="$HOME/.glab-cli"
+export PATH="$GLAB_CLI_HOME/bin:$PATH"
