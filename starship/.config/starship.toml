@@ -37,7 +37,7 @@ format = '[](fg:221 inverted)[$symbol$branch]($style)[](fg:221)'
 style = 'bg:221'
 
 [git_status]
-format = '[](fg:221 inverted)[$all_status$ahead_behind]($style)[](fg:221)'
+format = '([](fg:221 inverted)[$all_status$ahead_behind]($style)[](fg:221))'
 style = 'bg:221'
 
 conflicted = '咽'
