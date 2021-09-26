@@ -1,0 +1,74 @@
+format = """
+$time\
+$battery\
+$env_var\
+$kubernetes\
+$line_break\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$line_break\
+$character\
+"""
+
+[battery]
+format = '[](fg:157 inverted)[$symbol$percentage]($style)[](fg:157)'
+
+[[battery.display]]
+style = 'bg:157'
+threshold = 100
+
+[directory]
+format = '[$read_only]($read_only_style)[$path]($style)[](fg:51)'
+read_only = '🔒 '
+read_only_style = 'bg:51'
+style = 'bg:51'
+truncation_length = 0
+truncate_to_repo = false
+
+[env_var]
+format = '[](fg:252 inverted)[磊$env_value]($style)[](fg:252)'
+style = 'bg:252'
+variable = 'GPG_TTY'
+
+[git_branch]
+format = '[](fg:221 inverted)[$symbol$branch]($style)[](fg:221)'
+style = 'bg:221'
+
+[git_status]
+format = '[](fg:221 inverted)[$all_status$ahead_behind]($style)[](fg:221)'
+style = 'bg:221'
+
+conflicted = '咽'
+ahead = '嶺'
+behind = '寧'
+diverged = '練'
+untracked = '署'
+stashed = '溜'
+modified = '杻'
+staged = '塚'
+renamed = '穀'
+deleted = '者'
+
+[git_state]
+format = '[](fg:221 inverted)[$state($progress_current/$progress_total)]($style)[](fg:221)'
+style = 'bg:221'
+
+rebase = '療'
+merge = '᚛'
+revert = '⤺ '
+cherry_pick = '🍒 '
+bisect = '🔪 '
+am = '📫 '
+am_or_rebase = '📫 療'
+
+[kubernetes]
+disabled = false
+format = '[](fg:157 inverted)[$symbol$context( \($namespace\))]($style)[](fg:157)'
+style = 'bg:157'
+
+[time]
+disabled = false
+format = '[$time]($style)[](fg:252)'
+style = 'bg:252'
