@@ -9,6 +9,7 @@ $git_branch\
 $git_status\
 $git_state\
 $line_break\
+$status\
 $character\
 """
 
@@ -67,6 +68,10 @@ am_or_rebase = '📫 療'
 disabled = false
 format = '[](fg:157 inverted)[$symbol$context( \($namespace\))]($style)[](fg:157)'
 style = 'bg:157'
+
+[status]
+disabled = false
+format = "[$status]($style)"
 
 [time]
 disabled = false
