@@ -5,6 +5,7 @@ endif
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
+let g:polyglot_disabled = ['asciidoc'] " asciidoc slowdown
 
 augroup my_autocommands
 	autocmd!
@@ -43,7 +44,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth' " functionality already provided by vim-polyglot
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
