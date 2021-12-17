@@ -15,6 +15,7 @@ $character\
 
 [battery]
 format = '[◢](fg:157)[$symbol$percentage]($style)[◤](fg:157)'
+unknown_symbol = "? "
 
 [[battery.display]]
 style = 'bg:157'
