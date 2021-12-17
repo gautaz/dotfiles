@@ -14,11 +14,11 @@ $character\
 """
 
 [battery]
-format = '[◢](fg:157)[$symbol$percentage]($style)[◤](fg:157)'
+format = '[◢](fg:221)[$symbol$percentage]($style)[◤](fg:221)'
 unknown_symbol = "? "
 
 [[battery.display]]
-style = 'bg:157'
+style = 'bg:221'
 threshold = 100
 
 [directory]
@@ -35,12 +35,12 @@ style = 'bg:252'
 variable = 'GPG_TTY'
 
 [git_branch]
-format = '[◢](fg:221)[$symbol$branch]($style)[◤](fg:221)'
-style = 'bg:221'
+format = '[◢](fg:157)[$symbol$branch]($style)[◤](fg:157)'
+style = 'bg:157'
 
 [git_status]
-format = '([◢](fg:221)[$all_status$ahead_behind]($style)[◤](fg:221))'
-style = 'bg:221'
+format = '([◢](fg:157)[$all_status$ahead_behind]($style)[◤](fg:157))'
+style = 'bg:157'
 
 conflicted = '⚔ '
 ahead = '▲ '
@@ -54,8 +54,8 @@ renamed = '🎭 '
 deleted = '🗑  '
 
 [git_state]
-format = '[◢](fg:221)[$state($progress_current/$progress_total)]($style)[◤](fg:221)'
-style = 'bg:221'
+format = '[◢](fg:157)[$state($progress_current/$progress_total)]($style)[◤](fg:157)'
+style = 'bg:157'
 
 rebase = '⤒ '
 merge = '⅄'
@@ -67,8 +67,8 @@ am_or_rebase = '✉ ⤒ '
 
 [kubernetes]
 disabled = false
-format = '[◢](fg:157)[$symbol$context( \($namespace\))]($style)[◤](fg:157)'
-style = 'bg:157'
+format = '[◢](fg:221)[$symbol$context( \($namespace\))]($style)[◤](fg:221)'
+style = 'bg:221'
 
 [status]
 disabled = false
