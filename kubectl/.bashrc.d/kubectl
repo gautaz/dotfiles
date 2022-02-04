@@ -4,20 +4,29 @@ export KUBECONFIG="${HOME}/.kube/config$(printf ":%s" "${EXTRA_KUBE_CONFIGS[@]}"
 
 if hash -r docker 2>/dev/null; then
 	function __kubectl_interactive_options() {
-		local stdin_option
-		local tty_option
-		case "$1" in
-			attach|debug|exec|run)
-				shift
-				while [[ $# -gt 0 ]]; do
-					if [[ "$1" =~ ^(--tty=true|-[^-]*t.*)$ ]]; then tty_option=t; fi
-					if [[ "$1" =~ ^(--stdin=true|-[^-]*i.*)$ ]]; then stdin_option=i; fi
+		if [[ $# -gt 0 ]]; then
+			local stdin_option=''
+			local tty_option=''
+			case "$1" in
+				attach|debug|exec|run)
 					shift
-				done
-				;;
-		esac
-		local options="-${stdin_option}${tty_option}"
-		if [[ ${options} != "-" ]]; then echo "${options}"; fi
+					while [[ $# -gt 0 ]]; do
+						if [[ "$1" =~ ^(--tty=true|-[^-]*t.*)$ ]]; then tty_option=t; fi
+						if [[ "$1" =~ ^(--stdin=true|-[^-]*i.*)$ ]]; then stdin_option=i; fi
+						shift
+					done
+					;;
+				create|delete|apply|replace)
+					shift
+					while [[ $# -gt 0 ]]; do
+						if [[ "$1" =~ ^(--filename=)?-$ ]]; then stdin_option=i; fi
+						shift
+					done
+					;;
+			esac
+			local options="-${stdin_option}${tty_option}"
+			if [[ ${options} != "-" ]]; then echo "${options}"; fi
+		fi
 	}
 	export -f __kubectl_interactive_options
 
