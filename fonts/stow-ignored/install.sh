@@ -1,12 +1,13 @@
 FONTS="${HOME}/.fonts"
-NERD_FONTS_VERSION="$(curl -sf "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest" | awk -F'[ ":,]+' '/tag_name/{print $3}')"
+NERD_FONTS_REPOSITORY="ryanoasis/nerd-fonts"
+NERD_FONTS_UBUNTU_ZIP="UbuntuMono.zip"
 
 mkdir -p "${FONTS}"
 (
 	cd "${FONTS}"
-	curl -sfLO https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONTS_VERSION}/UbuntuMono.zip
-	unzip -f UbuntuMono.zip
-	rm UbuntuMono.zip
+	curl -sfLO "https://github.com/${NERD_FONTS_REPOSITORY}/releases/download/$(__gh_latest_tag "${NERD_FONTS_REPOSITORY}")/${NERD_FONTS_UBUNTU_ZIP}"
+	unzip -f "${NERD_FONTS_UBUNTU_ZIP}"
+	rm "${NERD_FONTS_UBUNTU_ZIP}"
 )
 
 fc-cache -f
