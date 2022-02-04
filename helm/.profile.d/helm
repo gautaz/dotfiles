@@ -1,0 +1,2 @@
+export HELM_HOME="$HOME/.helm"
+export PATH="$HELM_HOME/bin:$PATH"
