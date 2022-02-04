@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-STARSHIP_BIN="${HOME}/.starship/bin"
-eval "$("${STARSHIP_BIN}/starship" init bash)"
+eval "$("${HOME}/bin/starship" init bash)"

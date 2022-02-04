@@ -6,6 +6,11 @@ if ! hash -r stow &> /dev/null; then
 	exit 1
 fi
 
+if ! hash -r curl &> /dev/null; then
+	echo "curl is missing"
+	exit 1
+fi
+
 __info() {
 	echo -e '\e[48;5;76m\e[97m'
 }
@@ -16,6 +21,11 @@ __warn() {
 
 __default() {
 	echo -e '\e[49m\e[39m'
+}
+
+__gh_latest_tag() {
+	local repository="$1"
+	curl -sf "https://api.github.com/repos/${repository}/releases/latest" | awk -F'[ ":,]+' '/tag_name/{print $3}'
 }
 
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null

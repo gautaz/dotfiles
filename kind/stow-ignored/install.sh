@@ -1,14 +1,13 @@
-KIND_HOME="${HOME}/.kind"
-KIND_VERSION="$(curl -sf "https://api.github.com/repos/kubernetes-sigs/kind/releases/latest" | awk -F'[ ":,]+' '/tag_name/{print $3}')"
+KIND_CMD="${HOME}/stow/kind/bin/kind"
 
 PLATFORM="$(uname -s)"
-ARCH="$(uname -m)"
 declare -A KIND_ARCH=( ["x86_64"]="amd64" ["aarch64"]="arm64" )
 
-mkdir -p "${KIND_HOME}/bin"
-curl -sfL "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-${PLATFORM,,}-${KIND_ARCH[$(uname -m)]}" -o "${KIND_HOME}/bin/kind"
-chmod u+x "${KIND_HOME}/bin/kind"
+mkdir -p "${KIND_CMD%/*}"
+curl -sfL "https://github.com/kubernetes-sigs/kind/releases/download/$(__gh_latest_tag "kubernetes-sigs/kind")/kind-${PLATFORM,,}-${KIND_ARCH[$(uname -m)]}" -o "${KIND_CMD}"
+chmod u+x "${KIND_CMD}"
+stow -d "${HOME}/stow" "kind"
 
 KIND_COMPLETION="kind/.bash_completion.d"
 mkdir -p "${KIND_COMPLETION}"
-"${KIND_HOME}/bin/kind" completion bash > "${KIND_COMPLETION}/kind"
+"${KIND_CMD}" completion bash > "${KIND_COMPLETION}/kind"

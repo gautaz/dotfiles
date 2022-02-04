@@ -1,2 +1,0 @@
-export KIND_HOME="$HOME/.kind"
-export PATH="$KIND_HOME/bin:$PATH"
