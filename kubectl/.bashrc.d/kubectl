@@ -40,7 +40,7 @@ if hash -r docker 2>/dev/null; then
 	export -f __kubectl_dns_resolution
 
 	function kubectl() {
-		docker run --network=host -u "${UID}:${GID}" $(__kubectl_dns_resolution) -v "${HOME}/.kube:/.kube" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
+		docker run --network=host -u "${UID}:${GID}" $(__kubectl_dns_resolution) -v "${HOME}/.kube:/.kube" -v "${PWD}:/tmp/workdir" -w "/tmp/workdir" -e "KUBECONFIG=${KUBECONFIG//${HOME}/}" --rm $(__kubectl_interactive_options "$@") bitnami/kubectl "$@"
 	}
 	export -f kubectl
 fi
