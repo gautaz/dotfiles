@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 HELM_CMD="${HOME}/stow/helm/bin/helm"
 
 PLATFORM="$(uname -s)"

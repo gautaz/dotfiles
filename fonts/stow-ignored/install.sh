@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 FONTS="${HOME}/.fonts"
 NERD_FONTS_REPOSITORY="ryanoasis/nerd-fonts"
 NERD_FONTS_UBUNTU_ZIP="UbuntuMono.zip"

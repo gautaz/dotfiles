@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 mkdir -p "${HOME}/.config/nvim/plugged"
 
 curl -sfLo "${HOME}/.config/nvim/autoload/plug.vim" --create-dirs \

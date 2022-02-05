@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 COMPOSE_CMD="${HOME}/stow/docker-compose/bin/docker-compose"
 # 1.29.2 is a workaround for https://github.com/docker/compose/issues/8550
 # COMPOSE_VERSION="$(curl -sf "https://api.github.com/repos/docker/compose/releases/latest" | awk -F'[ ":,]+' '/tag_name/{print $3}')"

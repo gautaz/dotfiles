@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 KUBECTL_CMD="${HOME}/stow/kubectl/bin/kubectl"
 
 PLATFORM="$(uname -s)"

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 KIND_CMD="${HOME}/stow/kind/bin/kind"
 
 PLATFORM="$(uname -s)"

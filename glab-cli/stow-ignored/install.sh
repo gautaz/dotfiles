@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 GLAB_CLI_CMD="${HOME}/stow/glab-cli/bin/glab"
 GLAB_CLI_VERSION="$(__gh_latest_tag "profclems/glab")"
 
