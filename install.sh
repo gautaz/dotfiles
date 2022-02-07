@@ -11,6 +11,60 @@ if ! hash -r curl &> /dev/null; then
 	exit 1
 fi
 
+if ! hash -r uname &> /dev/null; then
+	echo "uname is missing"
+	exit 1
+fi
+
+# https://github.com/mutagen-io/mutagen/blob/master/pkg/agent/probe.go
+declare -A UNAMES_TO_GOOS=(
+["AIX"]="aix"
+["Darwin"]="darwin"
+["DragonFly"]="dragonfly"
+["FreeBSD"]="freebsd"
+["Linux"]="linux"
+["NetBSD"]="netbsd"
+["OpenBSD"]="openbsd"
+["SunOS"]="solaris"
+)
+
+declare -A UNAMEM_TO_GOARCH=(
+["i386"]="386"
+["i486"]="386"
+["i586"]="386"
+["i686"]="386"
+["x86_64"]="amd64"
+["amd64"]="amd64"
+["armv5l"]="arm"
+["armv6l"]="arm"
+["armv7l"]="arm"
+["armv8l"]="arm64"
+["aarch64"]="arm64"
+["arm64"]="arm64"
+["mips"]="mips"
+["mipsel"]="mipsle"
+["mips64"]="mips64"
+["mips64el"]="mips64le"
+["ppc64"]="ppc64"
+["ppc64le"]="ppc64le"
+["riscv64"]="riscv64"
+["s390x"]="s390x"
+)
+
+GOOS="${UNAMES_TO_GOOS[$(uname -s)]}"
+
+if [[ -z "${GOOS}" ]]; then
+	echo "Unable to get Go OS"
+	exit 1
+fi
+
+GOARCH="${UNAMEM_TO_GOARCH[$(uname -m)]}"
+
+if [[ -z "${GOARCH}" ]]; then
+	echo "Unable to get Go architecture"
+	exit 1
+fi
+
 __info() {
 	echo -e '\e[48;5;76m\e[97m'
 }

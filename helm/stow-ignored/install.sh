@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 HELM_CMD="${HOME}/stow/helm/bin/helm"
-
-PLATFORM="$(uname -s)"
-declare -A HELM_ARCH=( ["x86_64"]="amd64" ["aarch64"]="arm64" )
-FLAVOR="${PLATFORM,,}-${HELM_ARCH[$(uname -m)]}"
+FLAVOR="${GOOS}-${GOARCH}"
 
 mkdir -p "${HELM_CMD%/*}"
 curl -sfL "https://get.helm.sh/helm-$(__gh_latest_tag helm/helm)-${FLAVOR}.tar.gz" | tar xzOf - "${FLAVOR}/helm" > "${HELM_CMD}"
