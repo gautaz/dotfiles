@@ -1,2 +1,2 @@
 set background=light
-colorscheme mango
+colorscheme PaperColor
