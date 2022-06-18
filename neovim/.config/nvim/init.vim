@@ -11,6 +11,7 @@ let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
 let g:polyglot_disabled = ['asciidoc'] " vim-polyglot / vim-asciidoc: too slow
+let g:vim_json_syntax_conceal = 0 " vim-polyglot / vim-json: syntax concealing makes JSON editing cumbersome
 
 augroup my_autocommands
 	autocmd!
