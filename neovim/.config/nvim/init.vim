@@ -29,30 +29,30 @@ if empty(glob(DotFiles('autoload/plug.vim')))
 endif
 
 call plug#begin(DotFiles('plugged'))
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter' " shows a git diff in the sign column
 Plug 'neomake/neomake'
-Plug 'benjifisher/matchit.zip'
-Plug 'blueyed/vim-diminactive'
-Plug 'bronson/vim-visual-star-search'
-Plug 'dense-analysis/ale'
-Plug 'vim-autoformat/vim-autoformat'
-Plug 'easymotion/vim-easymotion'
-Plug 'hashivim/vim-vagrant'
+Plug 'benjifisher/matchit.zip' " configure % to match more than just single characters
+Plug 'blueyed/vim-diminactive' " dim inactive windows
+Plug 'bronson/vim-visual-star-search' " Use * and # on visual selection
+Plug 'dense-analysis/ale' " linting & completion (currently needs deoplete)
+Plug 'vim-autoformat/vim-autoformat' " auto format with external formatting programs
+Plug 'easymotion/vim-easymotion' " fast cursor motions with <leader>[fFswb...]
+Plug 'junegunn/vim-easy-align' " ease table alignment with ga<character>
+Plug 'mattn/emmet-vim' " expand web abbreviations with <crtl>y
 Plug 'NLKNguyen/papercolor-theme' " color theme
-Plug 'mattn/emmet-vim'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sirtaj/vim-openscad',
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
+Plug 'ntpeters/vim-better-whitespace' " highlight trailing whitespaces (strip with :StripWhitespace)
+Plug 'sheerun/vim-polyglot' " collection of language packs
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " asynchronous completion framework
+Plug 'sirtaj/vim-openscad' " syntax highlighting for OpenSCAD
+Plug 'tpope/vim-abolish' " enhanced substitute with :S instead of :s
+Plug 'tpope/vim-commentary' " comment lines with gc
+Plug 'tpope/vim-eunuch' " sugar for the UNIX shell commands (:Move for example)
+Plug 'tpope/vim-fugitive' " access git features with :Git
 " Plug 'tpope/vim-sleuth' " functionality already provided by vim-polyglot
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-unimpaired' " pairs of bracket maps ([q, ]q, ...)
+Plug 'vim-airline/vim-airline' " lean & mean statusline
+Plug 'vim-airline/vim-airline-themes' " needed to use papercolor theme
+Plug 'Yggdroot/indentLine' " display indentation
 call plug#end()
 
 for vimscript in split(glob(DotFiles('modules/*.vim')), '\n')
