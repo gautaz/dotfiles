@@ -1,13 +1,16 @@
 set redrawtime=200
 
+" Use volta to set Neovim Node.js host
 if executable('volta')
 	let g:node_host_prog = trim(system("volta which neovim-node-host"))
 endif
 
+" Disable unused neovim providers
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
-let g:polyglot_disabled = ['asciidoc'] " asciidoc slowdown
+
+let g:polyglot_disabled = ['asciidoc'] " vim-polyglot / vim-asciidoc: too slow
 
 augroup my_autocommands
 	autocmd!
