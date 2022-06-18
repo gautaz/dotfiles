@@ -34,7 +34,6 @@ Plug 'neomake/neomake'
 Plug 'benjifisher/matchit.zip'
 Plug 'blueyed/vim-diminactive'
 Plug 'bronson/vim-visual-star-search'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'dense-analysis/ale'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'easymotion/vim-easymotion'
