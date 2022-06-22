@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 KIND_CMD="${HOME}/stow/kind/bin/kind"
 
 mkdir -p "${KIND_CMD%/*}"

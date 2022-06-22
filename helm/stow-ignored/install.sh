@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 HELM_CMD="${HOME}/stow/helm/bin/helm"
 FLAVOR="${GOOS}-${GOARCH}"
 

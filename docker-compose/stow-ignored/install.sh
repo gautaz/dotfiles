@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
 
 if hash -r docker 2> /dev/null; then
 	COMPOSE_CMD="${HOME}/stow/docker-compose/bin/docker-compose"

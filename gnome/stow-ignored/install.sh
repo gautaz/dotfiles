@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 if hash -r dconf 2> /dev/null; then
 	dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ <<- END_OF_CONFIGURATION
 [custom0]

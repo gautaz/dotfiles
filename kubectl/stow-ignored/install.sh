@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 KUBECTL_CMD="${HOME}/stow/kubectl/bin/kubectl"
 
 mkdir -p "${KUBECTL_CMD%/*}"

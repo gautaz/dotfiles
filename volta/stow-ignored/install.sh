@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 curl -sf https://get.volta.sh | bash -s -- --skip-setup
 
 "${HOME}/.volta/bin/volta" install node

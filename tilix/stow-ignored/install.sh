@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 if hash -r tilix dconf 2> /dev/null; then
 	dconf load /com/gexperts/Tilix/ <<- END_OF_CONFIGURATION
 [/]

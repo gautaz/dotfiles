@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euf -o pipefail
+
 GIT_PORCELAIN_HOME="$(dirname "${PWD}")/git-porcelain"
 if [ ! -d "${GIT_PORCELAIN_HOME}" ]; then
 	git clone https://github.com/gautaz/git-porcelain.git "${GIT_PORCELAIN_HOME}"

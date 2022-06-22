@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -o errexit
+set -eu -o pipefail
+shopt -s failglob
 
 if ! hash -r stow &> /dev/null; then
 	echo "stow is missing"
@@ -67,14 +68,14 @@ declare -A UNAMEM_TO_GOARCH=(
 ["s390x"]="s390x"
 )
 
-GOOS="${UNAMES_TO_GOOS[$(uname -s)]}"
+export GOOS="${UNAMES_TO_GOOS[$(uname -s)]}"
 
 if [[ -z "${GOOS}" ]]; then
 	echo "Unable to get Go OS"
 	exit 1
 fi
 
-GOARCH="${UNAMEM_TO_GOARCH[$(uname -m)]}"
+export GOARCH="${UNAMEM_TO_GOARCH[$(uname -m)]}"
 
 if [[ -z "${GOARCH}" ]]; then
 	echo "Unable to get Go architecture"
@@ -84,25 +85,29 @@ fi
 __info() {
 	echo -e '\e[48;5;76m\e[97m'
 }
+export -f __info
 
 __warn() {
 	echo -e '\e[48;5;208m\e[97m'
 }
+export -f __warn
 
 __default() {
 	echo -e '\e[49m\e[39m'
 }
+export -f __default
 
 __gh_latest_tag() {
 	local repository="$1"
 	curl -sf "https://api.github.com/repos/${repository}/releases/latest" | awk -F'[ ":,]+' '/tag_name/{print $3}'
 }
+export -f __gh_latest_tag
 
 pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
 
-find */ -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTALL; do
+find . -path "*/stow-ignored/install.sh" -print0 | while read -r -d $'\0' INSTALL; do
 	echo "${INSTALL}"
-	. "${INSTALL}"
+	"${INSTALL}" || echo "Exit status: $?"
 done
 
 stow -t "${HOME}" --ignore=stow-ignored */
