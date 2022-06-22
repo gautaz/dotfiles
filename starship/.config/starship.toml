@@ -14,60 +14,64 @@ $character\
 """
 
 [battery]
-format = '[◢](fg:221)[$symbol$percentage]($style)[◤](fg:221)'
-unknown_symbol = "? "
+format = '[ ](fg:221)[$symbol $percentage]($style)[](fg:221)'
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+unknown_symbol = ""
+empty_symbol = ""
 
 [[battery.display]]
 style = 'bg:221'
 threshold = 100
 
 [directory]
-format = '[$read_only]($read_only_style)[$path]($style)[◤](fg:51)'
-read_only = '🔒 '
+format = '[$read_only]($read_only_style)[$path]($style)[](fg:51)'
+read_only = ' '
 read_only_style = 'bg:51'
 style = 'bg:51'
 truncation_length = 0
 truncate_to_repo = false
 
 [env_var]
-format = '[◢](fg:252)[磊$env_value]($style)[◤](fg:252)'
+format = '[ ](fg:252)[ $env_value]($style)[](fg:252)'
 style = 'bg:252'
 variable = 'GPG_TTY'
 
 [git_branch]
-format = '[◢](fg:157)[$symbol$branch]($style)[◤](fg:157)'
+format = '[ ](fg:157)[$symbol$branch]($style)[](fg:157)'
 style = 'bg:157'
 
 [git_status]
-format = '([◢](fg:157)[$all_status$ahead_behind]($style)[◤](fg:157))'
+format = '([ ](fg:157)[$all_status$ahead_behind]($style)[](fg:157))'
 style = 'bg:157'
 
-conflicted = '⚔ '
-ahead = '▲ '
-behind = '▼ '
-diverged = 'Y'
-untracked = '✨ '
-stashed = '🗃  '
-modified = '✍  '
-staged = '⚓ '
-renamed = '🎭 '
-deleted = '🗑  '
+conflicted = ' '
+ahead = ' '
+behind = ' '
+diverged = ' '
+untracked = ' '
+stashed = ' '
+modified = ' '
+staged = ' '
+renamed = ' '
+deleted = ' '
 
 [git_state]
-format = '[◢](fg:157)[$state($progress_current/$progress_total)]($style)[◤](fg:157)'
+format = '[ ](fg:157)[$state($progress_current/$progress_total)]($style)[](fg:157)'
 style = 'bg:157'
 
-rebase = '⤒ '
-merge = '⅄'
-revert = '⤸ '
-cherry_pick = 'Ⰶ '
-bisect = '✂ '
-am = '✉ '
-am_or_rebase = '✉ ⤒ '
+rebase = ''
+merge = ''
+revert = ' '
+cherry_pick = ' '
+bisect = ' '
+am = ' '
+am_or_rebase = ' '
 
 [kubernetes]
 disabled = false
-format = '[◢](fg:221)[$symbol$context( \($namespace\))]($style)[◤](fg:221)'
+format = '[ ](fg:221)[$symbol$context( \($namespace\))]($style)[](fg:221)'
 style = 'bg:221'
 
 [status]
@@ -76,5 +80,5 @@ format = "[$status]($style)"
 
 [time]
 disabled = false
-format = '[$time]($style)[◤](fg:252)'
+format = '[$time]($style)[](fg:252)'
 style = 'bg:252'
