@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+if hash -r screen 2>/dev/null; then
+	ns() {
+		local cwd='@'
+		[ "$PWD" != "$HOME" ] && cwd="${PWD/#$HOME\//\@\/}"
+		cwd="${cwd//\//@}"
+		cwd="${cwd#@@}"
+		local sessionname="${cwd//[[:cntrl:]]}"
+		screen -d -m -S "${sessionname}"
+		echo "${sessionname}"
+	}
+
+	nsa() {
+		local sessionname="$(ns)"
+		screen -r "${sessionname}"
+	}
+fi
