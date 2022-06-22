@@ -16,6 +16,22 @@ if ! hash -r uname &> /dev/null; then
 	exit 1
 fi
 
+if ! hash -r awk &> /dev/null; then
+	echo "awk is missing"
+	exit 1
+fi
+
+if ! hash -r date &> /dev/null; then
+	echo "date is missing"
+	exit 1
+fi
+
+if [[ $(curl -sI https://api.github.com/users/octocat | awk '/^x-ratelimit-remaining:/{ print $2 }') = 0 ]]; then
+	REMAINING_SECONDS=$(($(curl -sI https://api.github.com/users/octocat | awk '/^x-ratelimit-reset:/{ print $2 }' | tr -d '\r') - $(date '+%s')))
+	echo "github ratelimit exceeded (wait for $((${REMAINING_SECONDS} / 60))'$((${REMAINING_SECONDS} % 60))\")"
+	exit 1
+fi
+
 # https://github.com/mutagen-io/mutagen/blob/master/pkg/agent/probe.go
 declare -A UNAMES_TO_GOOS=(
 ["AIX"]="aix"
