@@ -2,13 +2,9 @@
 set -euf -o pipefail
 
 if hash -r dconf 2> /dev/null; then
+	dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
 	dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ <<- END_OF_CONFIGURATION
 [custom0]
-binding='<Alt>q'
-command='tilix --quake'
-name='Tilix Quake'
-
-[custom1]
 binding='<Alt>s'
 command='flameshot gui'
 name='Flameshot'
