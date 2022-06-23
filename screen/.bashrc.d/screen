@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 if hash -r screen 2>/dev/null; then
+	# new detached session
 	ns() {
 		local cwd='~'
 		[ "${PWD}" != "${HOME}" ] && cwd="${PWD/#${HOME}\//\~\/}"
@@ -8,8 +9,14 @@ if hash -r screen 2>/dev/null; then
 		echo "${sessionname}"
 	}
 
+	# new session, reattach immediately
 	nsa() {
 		local sessionname="$(ns)"
 		screen -r "${sessionname}"
+	}
+
+	# (re)attach to home session (create if needed)
+	hs() {
+		screen -r -d '~@' || (cd && nsa)
 	}
 fi
