@@ -7,3 +7,8 @@ CARGO="${HOME}/stow/cargo"
 mkdir -p "${CARGO}"
 (cd "${CARGO}" && rm -f bin && ln -s ../../.cargo/bin)
 stow -d "${HOME}/stow" "cargo"
+
+RUST_COMPLETION="rust/.bash_completion.d"
+mkdir -p "${RUST_COMPLETION}"
+rustup completions bash rustup > "${RUST_COMPLETION}/rustup"
+rustup completions bash cargo > "${RUST_COMPLETION}/cargo"
