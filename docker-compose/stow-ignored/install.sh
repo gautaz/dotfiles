@@ -8,6 +8,7 @@ if hash -r docker 2> /dev/null; then
 	COMPOSE_VERSION=1.29.2
 
 	mkdir -p "${COMPOSE_CMD%/*}"
+	rm -rf "${COMPOSE_CMD}"
 	curl -sfL "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o "${COMPOSE_CMD}"
 	chmod u+x "${COMPOSE_CMD}"
 	stow -d "${HOME}/stow" "docker-compose"
