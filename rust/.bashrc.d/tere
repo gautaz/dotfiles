@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+tere() {
+	local result=$("${CARGO_HOME}/bin/tere" "$@")
+	[ -n "$result" ] && cd -- "$result"
+}
