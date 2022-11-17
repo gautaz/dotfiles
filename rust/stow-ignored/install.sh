@@ -12,4 +12,5 @@ mkdir -p "${RUST_COMPLETION}"
 "${RUSTUP}" completions bash rustup > "${RUST_COMPLETION}/rustup"
 "${RUSTUP}" completions bash cargo > "${RUST_COMPLETION}/cargo"
 
+"${CARGO}" install alacritty
 "${CARGO}" install tere
