@@ -12,6 +12,6 @@ curl -sf https://get.volta.sh | bash -s -- --skip-setup
 
 VOLTA_COMPLETION="volta/.bash_completion.d"
 mkdir -p "${VOLTA_COMPLETION}"
-volta completions bash > "${VOLTA_COMPLETION}/volta"
-node --completion-bash > "${VOLTA_COMPLETION}/node"
-npm completion > "${VOLTA_COMPLETION}/npm"
+"${HOME}/.volta/bin/volta" completions bash > "${VOLTA_COMPLETION}/volta"
+"${HOME}/.volta/bin/node" --completion-bash > "${VOLTA_COMPLETION}/node"
+"${HOME}/.volta/bin/npm" completion > "${VOLTA_COMPLETION}/npm"
