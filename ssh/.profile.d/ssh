@@ -4,7 +4,7 @@ if [ ! -f "${HOME}/.ssh/id_rsa" ]; then
 fi
 
 if hash -r ssh-agent &> /dev/null; then
-	if ! _dotfilesSourceIfExists "${HOME}/.ssh/environment" || [ "$(pgrep -n -u "${EUID}" ssh-agent)" !=  ${SSH_AGENT_PID} ]; then
+	if ! _dotfilesSourceIfExists "${HOME}/.ssh/environment" || [ "$(pgrep -n -u "${EUID}" ssh-agent)" != "${SSH_AGENT_PID}" ]; then
 		ssh-agent | sed 's/^echo/#echo/' > "${HOME}/.ssh/environment"
 		chmod 600 "${HOME}/.ssh/environment"
 		. "${HOME}/.ssh/environment"
