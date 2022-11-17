@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
-EXTRA_KUBE_CONFIGS=(${HOME}/.kube/config.d/*)
-export KUBECONFIG="${HOME}/.kube/config$(printf ":%s" "${EXTRA_KUBE_CONFIGS[@]}")"
+if [[ -f "${HOME}/.kube/config" ]]; then
+	KUBECONFIG="${HOME}/.kube/config"
+fi
+
+if [[ -d "${HOME}/.kube/config.d" ]]; then
+	KUBECONFIG="${KUBECONFIG}$(printf ":%s" "${EXTRA_KUBE_CONFIGS[@]}")"
+fi
+
+if [[ -n "${KUBECONFIG}" ]]; then
+	export KUBECONFIG
+fi
